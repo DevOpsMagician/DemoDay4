@@ -6,29 +6,68 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
+
 name: Python Package magic
 
 on: [push, pull_request]
 
-
 jobs:
   demo4:
-
     runs-on: ubuntu-latest
     container:
       image: python
 
     steps:
     - uses: actions/checkout@v4
+
     # - name: Set up Python
     #   uses: actions/setup-python@v3
     #   with:
     #     python-version: '3.x'
+
     - name: Install dependencies
       run: |
           echo "sample print statement"
         # python -m pip install --upgrade pip
         # pip install build
-    - name : run code
+
+    - name: Run code
       run: python hello.py
+
+    - name: Upload code output as artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-output
+        path: |
+          artifacts_sample_demo4.txt
+ 
+
+
+
+
+# name: Python Package magic
+
+# on: [push, pull_request]
+
+
+# jobs:
+#   demo4:
+
+#     runs-on: ubuntu-latest
+#     container:
+#       image: python
+
+#     steps:
+#     - uses: actions/checkout@v4
+#     # - name: Set up Python
+#     #   uses: actions/setup-python@v3
+#     #   with:
+#     #     python-version: '3.x'
+#     - name: Install dependencies
+#       run: |
+#           echo "sample print statement"
+#         # python -m pip install --upgrade pip
+#         # pip install build
+#     - name : run code
+#       run: python hello.py
    
