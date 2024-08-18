@@ -16,9 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python
-
     steps:
     - uses: actions/checkout@v4
+    - name: Use variables
+      run: |
+        echo "repository variable : $MY_KEY_DEMO4"
 
     # - name: Set up Python
     #   uses: actions/setup-python@v3
