@@ -16,6 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python
+
+    env:
+      MY_KEY_DEMO4: ${{ secrets.MY_KEY_DEMO4 }}
+      my_key1: ${{ secrets.MY_KEY1 }}
+
+    
     steps:
     - uses: actions/checkout@v4
     - name: Use variables
